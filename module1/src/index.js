@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+// num 1
 function formattingString(input, toUpper) {
     if (toUpper === false) {
         return input.toLowerCase();
@@ -25,6 +26,7 @@ function formattingString(input, toUpper) {
 console.log(formattingString("Hello")); // "HELLO"
 console.log(formattingString("Hello", true)); // "HELLO"
 console.log(formattingString("Hello", false)); // "hello"
+// num 2
 function filterByRating(items) {
     return items.filter(function (item) { return item.rating > 4; });
 }
@@ -35,21 +37,26 @@ var books = [
 ];
 filterByRating(books);
 console.log(filterByRating(books));
-// type GenericArray<T> = Array<T>
-// function concatenateArrays<T>(...arrays: T[][]): T[]{
-//   // return GenericArray <string>=["a", "b", "c", "d"]
-// }
-// concatenateArrays(["a", "b"], ["c"]);       // Output: ["a", "b", "c"]
-// concatenateArrays([1, 2], [3, 4], [5]);     // Output: [1, 2, 3, 4, 5]
-// Create a Vehicle class with private make and year properties and a getInfo() method.
-// Create a Car class extending Vehicle, adding a private model property and a getModel() method.
+// num 3
+function concatenateArrays() {
+    var arrays = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        arrays[_i] = arguments[_i];
+    }
+    return arrays.reduce(function (acc, cur) { return acc.concat(cur); }, []);
+}
+concatenateArrays(["a", "b"], ["c"]); // Output: ["a", "b", "c"]
+console.log(concatenateArrays(["a", "b"], ["c"]));
+concatenateArrays([1, 2], [3, 4], [5]); // Output: [1, 2, 3, 4, 5]
+console.log(concatenateArrays([1, 2], [3, 4], [5]));
+// num 4
 var Vehicle = /** @class */ (function () {
     function Vehicle(make, year) {
         this.make = make;
         this.year = year;
     }
     Vehicle.prototype.getInfo = function () {
-        console.log("This car is making ".concat(this.make, " in ").concat(this.year));
+        console.log("This car was made by ".concat(this.make, " in ").concat(this.year));
     };
     return Vehicle;
 }());
