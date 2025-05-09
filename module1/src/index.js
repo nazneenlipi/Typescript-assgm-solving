@@ -76,10 +76,6 @@ var myCar = new Car("Toyota", 2020, "Corolla");
 myCar.getInfo(); // Output: "Make: Toyota, Year: 2020"
 myCar.getModel(); // Output: "Model: Corolla"
 // num 5
-// Descriptio/n: Write a function that takes a string | number and returns:
-// The length if it's a string
-// The number multiplied by 2 if it's a number
-// Function Signature:
 function processValue(value) {
     if (typeof value === "string") {
         return value.length;
@@ -93,3 +89,17 @@ processValue("hello"); // Output: 5
 console.log(processValue("hello"));
 processValue(10); // Output: 20
 console.log(processValue(10));
+function getMostExpensiveProduct(products) {
+    if (products.length === 0) {
+        return null;
+    }
+    return products.reduce(function (max, product) { return (product.price > max.price ? product : max); });
+}
+var products = [
+    { name: "Pen", price: 10 },
+    { name: "Notebook", price: 25 },
+    { name: "Bag", price: 50 }
+];
+getMostExpensiveProduct(products);
+console.log(getMostExpensiveProduct(products));
+// Output: { name: "Bag", price: 50 }
