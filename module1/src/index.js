@@ -13,6 +13,42 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
+    return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 function formattingString(input, toUpper) {
     if (toUpper === false) {
         return input.toLowerCase();
@@ -21,7 +57,6 @@ function formattingString(input, toUpper) {
         return input.toUpperCase();
     }
 }
-// formattingString("Hello");         // "HELLO"
 formattingString("Hello"); // "HELLO"
 formattingString("Hello", true); // "HELLO"
 formattingString("Hello", false); // "hello"
@@ -34,7 +69,6 @@ var books = [
     { title: "Book C", rating: 5.0 },
 ];
 filterByRating(books);
-// console.log(filterByRating(books));
 function concatenateArrays() {
     var arrays = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -43,9 +77,7 @@ function concatenateArrays() {
     return arrays.reduce(function (acc, cur) { return acc.concat(cur); }, []);
 }
 concatenateArrays(["a", "b"], ["c"]); // Output: ["a", "b", "c"]
-// console.log(concatenateArrays(["a", "b"], ["c"]));
 concatenateArrays([1, 2], [3, 4], [5]); // Output: [1, 2, 3, 4, 5]
-// console.log(concatenateArrays([1, 2], [3, 4], [5]));
 var Vehicle = /** @class */ (function () {
     function Vehicle(make, year) {
         this.make = make;
@@ -81,7 +113,6 @@ function processValue(value) {
     return 0;
 }
 processValue("hello"); // Output: 5
-// console.log(processValue("hello"))
 processValue(10); // Output: 20
 function getMostExpensiveProduct(products) {
     if (products.length === 0) {
@@ -94,11 +125,7 @@ var products = [
     { name: "Notebook", price: 25 },
     { name: "Bag", price: 50 }
 ];
-getMostExpensiveProduct(products);
-// console.log(getMostExpensiveProduct(products));  
-// Output: { name: "Bag", price: 50 }
-// Define an enum Day for the days of the week.
-// Create a function that returns "Weekday" or "Weekend" based on the input day.
+getMostExpensiveProduct(products); // Output: { name: "Bag", price: 50 }
 var Day;
 (function (Day) {
     Day[Day["Monday"] = 0] = "Monday";
@@ -113,19 +140,23 @@ function getDayType(day) {
     if (day === Day.Saturday || day === Day.Sunday) {
         return "weekend";
     }
-    return "weekdays";
+    return "weekday";
 }
 getDayType(Day.Monday); // Output: "Weekday"
-console.log(getDayType(Day.Monday));
-console.log(getDayType(Day.Sunday));
 getDayType(Day.Sunday); // Output: "Weekend"
-// num 8
-// Description: Create an async function that:
-// Returns the square of a number after 1 second
-// Rejects if the number is negative
-// Function Signature:
-// async function squareAsync(n: number): Promise<number>{
-//   // if()
-// }
-// squareAsync(4).then(console.log);        // Output after 1s: 16
-// squareAsync(-3).catch(console.error);    // Output: Error: Negative number not allowed
+function squareAsync(n) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            if (n < 0) {
+                throw new Error("Negative number not allowed");
+            }
+            return [2 /*return*/, new Promise(function (resolve) {
+                    setTimeout(function () {
+                        resolve(n * n);
+                    }, 1000);
+                })];
+        });
+    });
+}
+squareAsync(4).then(console.log); // Output after 1s: 16
+squareAsync(-3).catch(console.error); // Output: Error: Negative number not allowed
