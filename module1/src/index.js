@@ -13,7 +13,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-// num 1
 function formattingString(input, toUpper) {
     if (toUpper === false) {
         return input.toLowerCase();
@@ -23,10 +22,9 @@ function formattingString(input, toUpper) {
     }
 }
 // formattingString("Hello");         // "HELLO"
-console.log(formattingString("Hello")); // "HELLO"
-console.log(formattingString("Hello", true)); // "HELLO"
-console.log(formattingString("Hello", false)); // "hello"
-// num 2
+formattingString("Hello"); // "HELLO"
+formattingString("Hello", true); // "HELLO"
+formattingString("Hello", false); // "hello"
 function filterByRating(items) {
     return items.filter(function (item) { return item.rating > 4; });
 }
@@ -36,8 +34,7 @@ var books = [
     { title: "Book C", rating: 5.0 },
 ];
 filterByRating(books);
-console.log(filterByRating(books));
-// num 3
+// console.log(filterByRating(books));
 function concatenateArrays() {
     var arrays = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -46,17 +43,16 @@ function concatenateArrays() {
     return arrays.reduce(function (acc, cur) { return acc.concat(cur); }, []);
 }
 concatenateArrays(["a", "b"], ["c"]); // Output: ["a", "b", "c"]
-console.log(concatenateArrays(["a", "b"], ["c"]));
+// console.log(concatenateArrays(["a", "b"], ["c"]));
 concatenateArrays([1, 2], [3, 4], [5]); // Output: [1, 2, 3, 4, 5]
-console.log(concatenateArrays([1, 2], [3, 4], [5]));
-// num 4
+// console.log(concatenateArrays([1, 2], [3, 4], [5]));
 var Vehicle = /** @class */ (function () {
     function Vehicle(make, year) {
         this.make = make;
         this.year = year;
     }
     Vehicle.prototype.getInfo = function () {
-        console.log("This car was made by ".concat(this.make, " in ").concat(this.year));
+        return ("Make: ".concat(this.make, " Year: ").concat(this.year));
     };
     return Vehicle;
 }());
@@ -68,14 +64,13 @@ var Car = /** @class */ (function (_super) {
         return _this;
     }
     Car.prototype.getModel = function () {
-        console.log("This is the ".concat(this.model, " model"));
+        return ("Model : ".concat(this.model, " "));
     };
     return Car;
 }(Vehicle));
 var myCar = new Car("Toyota", 2020, "Corolla");
 myCar.getInfo(); // Output: "Make: Toyota, Year: 2020"
 myCar.getModel(); // Output: "Model: Corolla"
-// num 5
 function processValue(value) {
     if (typeof value === "string") {
         return value.length;
@@ -86,9 +81,8 @@ function processValue(value) {
     return 0;
 }
 processValue("hello"); // Output: 5
-console.log(processValue("hello"));
+// console.log(processValue("hello"))
 processValue(10); // Output: 20
-console.log(processValue(10));
 function getMostExpensiveProduct(products) {
     if (products.length === 0) {
         return null;
@@ -101,5 +95,37 @@ var products = [
     { name: "Bag", price: 50 }
 ];
 getMostExpensiveProduct(products);
-console.log(getMostExpensiveProduct(products));
+// console.log(getMostExpensiveProduct(products));  
 // Output: { name: "Bag", price: 50 }
+// Define an enum Day for the days of the week.
+// Create a function that returns "Weekday" or "Weekend" based on the input day.
+var Day;
+(function (Day) {
+    Day[Day["Monday"] = 0] = "Monday";
+    Day[Day["Tuesday"] = 1] = "Tuesday";
+    Day[Day["Wednesday"] = 2] = "Wednesday";
+    Day[Day["Thursday"] = 3] = "Thursday";
+    Day[Day["Friday"] = 4] = "Friday";
+    Day[Day["Saturday"] = 5] = "Saturday";
+    Day[Day["Sunday"] = 6] = "Sunday";
+})(Day || (Day = {}));
+function getDayType(day) {
+    if (day === Day.Saturday || day === Day.Sunday) {
+        return "weekend";
+    }
+    return "weekdays";
+}
+getDayType(Day.Monday); // Output: "Weekday"
+console.log(getDayType(Day.Monday));
+console.log(getDayType(Day.Sunday));
+getDayType(Day.Sunday); // Output: "Weekend"
+// num 8
+// Description: Create an async function that:
+// Returns the square of a number after 1 second
+// Rejects if the number is negative
+// Function Signature:
+// async function squareAsync(n: number): Promise<number>{
+//   // if()
+// }
+// squareAsync(4).then(console.log);        // Output after 1s: 16
+// squareAsync(-3).catch(console.error);    // Output: Error: Negative number not allowed
