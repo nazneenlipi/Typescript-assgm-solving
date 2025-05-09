@@ -11,6 +11,7 @@ console.log(formattingString("Hello")); // "HELLO"
 console.log(formattingString("Hello", true)); // "HELLO"
 console.log(formattingString("Hello", false)); // "hello"
 
+
 // num 2
 function filterByRating(
   items: { title: string; rating: number }[]
@@ -22,19 +23,19 @@ const books = [
   { title: "Book B", rating: 3.2 },
   { title: "Book C", rating: 5.0 },
 ];
-
 filterByRating(books);
 console.log(filterByRating(books));
+
 
 // num 3
 function concatenateArrays<T>(...arrays: T[][]): T[] {
   return arrays.reduce((acc, cur) => acc.concat(cur), []);
 }
-
 concatenateArrays(["a", "b"], ["c"]); // Output: ["a", "b", "c"]
 console.log(concatenateArrays(["a", "b"], ["c"]));
 concatenateArrays([1, 2], [3, 4], [5]); // Output: [1, 2, 3, 4, 5]
 console.log(concatenateArrays([1, 2], [3, 4], [5]));
+
 
 // num 4
 
@@ -49,19 +50,32 @@ class Vehicle {
     console.log(`This car was made by ${this.make} in ${this.year}`);
   }
 }
-
 class Car extends Vehicle {
   private model: string;
   constructor(make: string, year: number, model: string) {
     super(make, year);
     this.model = model;
   }
-
-  getModel() {
+ getModel() {
     console.log(`This is the ${this.model} model`);
   }
 }
-
 const myCar = new Car("Toyota", 2020, "Corolla");
 myCar.getInfo(); // Output: "Make: Toyota, Year: 2020"
 myCar.getModel(); // Output: "Model: Corolla"
+
+
+// num 5
+function processValue(value: string | number): number {
+  if(typeof value === "string"){
+    return value.length
+  }
+  if(typeof value === "number"){
+    return value*2
+  }
+  return 0
+}
+processValue("hello"); // Output: 5
+console.log(processValue("hello"))
+processValue(10);      // Output: 20
+console.log(processValue(10))

@@ -75,3 +75,21 @@ var Car = /** @class */ (function (_super) {
 var myCar = new Car("Toyota", 2020, "Corolla");
 myCar.getInfo(); // Output: "Make: Toyota, Year: 2020"
 myCar.getModel(); // Output: "Model: Corolla"
+// num 5
+// Descriptio/n: Write a function that takes a string | number and returns:
+// The length if it's a string
+// The number multiplied by 2 if it's a number
+// Function Signature:
+function processValue(value) {
+    if (typeof value === "string") {
+        return value.length;
+    }
+    if (typeof value === "number") {
+        return value * 2;
+    }
+    return 0;
+}
+processValue("hello"); // Output: 5
+console.log(processValue("hello"));
+processValue(10); // Output: 20
+console.log(processValue(10));
